@@ -36,3 +36,5 @@ captures/
 *.iml
 
 \.idea/workspace\.xml
+
+app/\.DS_Store
