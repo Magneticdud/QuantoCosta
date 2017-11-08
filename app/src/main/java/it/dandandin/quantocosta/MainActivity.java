@@ -21,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     int quantita = 0;
     double unitPrice = 2.2;
-    double extralaminazione = 0.2;
+    double extralaminazione = 1.2;
 
     public void increase(View view) {
         quantita++;
-        display(quantita);
+        calcuPrice();
     }
 
     public void decrease(View view) {
@@ -34,22 +34,13 @@ public class MainActivity extends AppCompatActivity {
         {
             quantita = 0;
         }
-        display(quantita);
+        calcuPrice();
     }
 
     /**
      * Calcola
      */
     public void submitOrder(View view) {
-        calcuPrice();
-    }
-
-    /**
-     * Mostra la quantità
-     */
-    private void display(int number) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantitytextView);
-        quantityTextView.setText(number);
         calcuPrice();
     }
 
@@ -70,5 +61,8 @@ public class MainActivity extends AppCompatActivity {
         //mostro il layout del prezzo
         LinearLayout linearPrezzo = (LinearLayout) findViewById(R.id.linearprezzo);
         linearPrezzo.setVisibility(View.VISIBLE);
+        TextView quantityTextView = (TextView) findViewById(R.id.quantitytextView);
+        //necessario aggiungere "" a quantita per convertire il tutto a string
+        quantityTextView.setText(quantita+"");
     }
 }
