@@ -24,12 +24,39 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Calcola"
+        android:layout_marginTop="8dp"
         android:onClick="submitOrder"
+        android:text="Calcola"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearprezzo" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutopzioni" />
 
+    <LinearLayout
+        android:id="@+id/linearLayoutopzioni"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearbottoni">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Opzioni"
+            android:layout_marginBottom="16dp"
+            android:textAllCaps="true" />
+
+        <CheckBox
+            android:text="Laminazione"
+            android:id="@+id/cb_laminazione"
+            android:paddingLeft="24dp"
+            android:textSize="16sp"
+            android:onClick="submitOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearbottoni"
@@ -72,12 +99,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearbottoni">
+        app:layout_constraintTop_toBottomOf="@+id/button">
 
         <TextView
             android:id="@+id/textViewprice"

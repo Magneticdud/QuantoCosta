@@ -3,6 +3,7 @@ package it.dandandin.quantocosta;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.text.NumberFormat;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     int quantita = 0;
     double unitPrice = 2.2;
+    double extralaminazione = 0.2;
 
     public void increase(View view) {
         quantita++;
@@ -39,10 +41,7 @@ public class MainActivity extends AppCompatActivity {
      * Calcola
      */
     public void submitOrder(View view) {
-        display(quantita);
-        displayPrice(quantita * unitPrice);
-        LinearLayout linearPrezzo = (LinearLayout) findViewById(R.id.linearprezzo);
-        linearPrezzo.setVisibility(View.VISIBLE);
+        calcuPrice();
     }
 
     /**
@@ -50,14 +49,26 @@ public class MainActivity extends AppCompatActivity {
      */
     private void display(int number) {
         TextView quantityTextView = (TextView) findViewById(R.id.quantitytextView);
-        quantityTextView.setText("" + number);
+        quantityTextView.setText(number);
+        calcuPrice();
     }
 
     /**
      * Mostra il prezzo.
      */
-    private void displayPrice(double number) {
+    private void calcuPrice() {
+        CheckBox checkLamin = (CheckBox) findViewById(R.id.cb_laminazione);
+        double prezzo = 0;
+        if (checkLamin.isChecked()){
+            prezzo = quantita * unitPrice * extralaminazione;
+        }
+        else
+            prezzo = quantita * unitPrice;
+        //scrivo il prezzo
         TextView priceTextView = (TextView) findViewById(R.id.pricetextView);
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(prezzo));
+        //mostro il layout del prezzo
+        LinearLayout linearPrezzo = (LinearLayout) findViewById(R.id.linearprezzo);
+        linearPrezzo.setVisibility(View.VISIBLE);
     }
 }
