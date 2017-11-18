@@ -1,5 +1,7 @@
 package it.dandandin.quantocosta;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,7 +36,27 @@ public class MainActivity extends AppCompatActivity {
         {
             quantita = 0;
         }
-        calcuPrice();
+        else {
+            //quantità maggiore di zero, calcolo il prezzo
+            calcuPrice();
+        }
+    }
+
+    public void clickSend(View view){
+        String testoMail = calcuPrice();
+        sendEmail(testoMail);
+    }
+
+    private void sendEmail(String testo) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:sample2@example.com"));
+        //extra email non viene preso?
+        //intent.putExtra(Intent.EXTRA_EMAIL,"sample@example.com");
+        intent.putExtra(Intent.EXTRA_SUBJECT,"Nuovo ordine!!!1");
+        intent.putExtra(Intent.EXTRA_TEXT,testo);
+        if (intent.resolveActivity(getPackageManager())!=null) {
+            startActivity(intent);
+        }
     }
 
     /**
@@ -47,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Mostra il prezzo.
      */
-    private void calcuPrice() {
+    private String calcuPrice() {
         CheckBox checkLamin = (CheckBox) findViewById(R.id.cb_laminazione);
         double prezzo = 0;
         if (checkLamin.isChecked()){
@@ -63,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
         linearPrezzo.setVisibility(View.VISIBLE);
         TextView quantityTextView = (TextView) findViewById(R.id.quantitytextView);
         //necessario aggiungere "" a quantita per convertire il tutto a string
+        String mioTesto = quantita+" pezzi, per un totale di "+NumberFormat.getCurrencyInstance().format(prezzo);
         quantityTextView.setText(quantita+"");
+        return mioTesto;
     }
 }
