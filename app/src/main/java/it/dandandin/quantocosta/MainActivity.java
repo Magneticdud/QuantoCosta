@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(Uri.parse("mailto:sample2@example.com"));
         //extra email non viene preso?
         //intent.putExtra(Intent.EXTRA_EMAIL,"sample@example.com");
-        intent.putExtra(Intent.EXTRA_SUBJECT,"Nuovo ordine!!!1");
+        intent.putExtra(Intent.EXTRA_SUBJECT,R.string.new_order);
         intent.putExtra(Intent.EXTRA_TEXT,testo);
         if (intent.resolveActivity(getPackageManager())!=null) {
             startActivity(intent);
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         linearPrezzo.setVisibility(View.VISIBLE);
         TextView quantityTextView = (TextView) findViewById(R.id.quantitytextView);
         //necessario aggiungere "" a quantita per convertire il tutto a string
-        String mioTesto = quantita+" pezzi, per un totale di "+NumberFormat.getCurrencyInstance().format(prezzo);
+        String mioTesto = quantita+" "+R.string.pieces_for+" "+NumberFormat.getCurrencyInstance().format(prezzo);
         quantityTextView.setText(quantita+"");
         return mioTesto;
     }

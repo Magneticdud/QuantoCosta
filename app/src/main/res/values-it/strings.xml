@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QuantoCosta?</string>
+    <string name="new_order">Nuovo ordine!!11!</string>
+    <string name="pieces_for">pezzi, per un totale di</string>
+    <string name="quantity">Quantità</string>
+    <string name="calculate">Calcola</string>
+    <string name="options">Opzioni</string>
+    <string name="lamination">Laminazione</string>
+    <string name="price">Prezzo</string>
+    <string name="order">Ordina</string>
+</resources>

@@ -13,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="Quantità"
+        android:text="@string/quantity"
         android:textAllCaps="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:onClick="submitOrder"
-        android:text="Calcola"
+        android:text="@string/calculate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutopzioni" />
 
@@ -44,12 +44,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opzioni"
+            android:text="@string/options"
             android:layout_marginBottom="16dp"
             android:textAllCaps="true" />
 
         <CheckBox
-            android:text="Laminazione"
+            android:text="@string/lamination"
             android:id="@+id/cb_laminazione"
             android:paddingLeft="24dp"
             android:textSize="16sp"
@@ -110,7 +110,7 @@
             android:id="@+id/textViewprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Prezzo"
+            android:text="@string/price"
             android:textAllCaps="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearbottoni" />
@@ -129,7 +129,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ordina"
+            android:text="@string/order"
             android:onClick="clickSend"/>
     </LinearLayout>
 
